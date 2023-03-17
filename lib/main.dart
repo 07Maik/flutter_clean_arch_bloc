@@ -11,21 +11,10 @@ import 'package:flutter_clean_arch_bloc/core/service_locator.dart'
 
 import 'package:flutter_clean_arch_bloc/features/auth/presentation/bloc/auth_bloc.dart';
 
-class MyHttpOverrides extends HttpOverrides {
-  @override
-  HttpClient createHttpClient(SecurityContext? context) {
-    return super.createHttpClient(context)
-      ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
-  }
-}
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await service_locator.init();
-
-  HttpOverrides.global = MyHttpOverrides();
 
   runApp(const MyApp());
 }
