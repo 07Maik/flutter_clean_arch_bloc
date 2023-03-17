@@ -1,0 +1,1 @@
+// Add configuration and logic for Firebase
