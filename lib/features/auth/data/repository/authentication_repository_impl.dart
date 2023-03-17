@@ -18,22 +18,24 @@ class AuthRepositoryImpl implements AuthRepository {
     final result = await authService.login(username, password);
 
     return result.fold(
-      (l) => Left(l),
-      (r) {
-        final userModel = r.toEntity();
+      (error) => Left(error),
+      (user) {
+        final userModel = user.toEntity();
         return Right(userModel);
       },
     );
   }
 
   @override
-  Future<Either<Failure, UserModel>> signup(UserDTO user) async {
-    final result = await authService.signup(user);
+  Future<Either<Failure, UserModel>> signup(UserModel user) async {
+    final userDTO = UserDTO.fromEntity(user);
+
+    final result = await authService.signup(userDTO);
 
     return result.fold(
-      (l) => Left(l),
-      (r) {
-        final userModel = r.toEntity();
+      (error) => Left(error),
+      (user) {
+        final userModel = user.toEntity();
         return Right(userModel);
       },
     );

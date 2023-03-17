@@ -22,15 +22,4 @@ class InputDecorations {
                 color: const Color(UIConstants.borderColorField),
               ));
   }
-
-  // InputDecoration(
-  //   label: Text(label),
-  //   hintText: hintText,
-  //   filled: true,
-  //   fillColor: Colors.white,
-  //   border: OutlineInputBorder(
-  //     borderRadius: BorderRadius.circular(10.0),
-  //     borderSide: BorderSide.none,
-  //   ),
-  // ),
 }
